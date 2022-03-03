@@ -1,11 +1,12 @@
 import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useFormik} from 'formik';
 import {useDispatch} from 'react-redux';
 import {createCategory} from '../../../reudx/categorySlice';
 import FormInput from '../../../global/components/TextInput';
 import CustomButton from '../../../global/components/CustomButton';
 import * as Yup from 'yup';
+import {useIsFocused} from '@react-navigation/core';
 
 const schemaValidation = Yup.object({
   name: Yup.string().required('Route Name is required'),
@@ -23,6 +24,12 @@ const CreateForm = () => {
       dispatch(createCategory({...values, id: new Date().getTime()}));
     },
   });
+
+  const isFocused = useIsFocused();
+  useEffect(() => {
+    if (!isFocused) formikprops?.resetForm();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFocused]);
 
   return (
     <View>

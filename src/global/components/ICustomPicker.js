@@ -77,26 +77,7 @@ const ICustomPicker = props => {
     }
   };
 
-  const setSearchWithCallback = value => {
-    setSearchTerm(value);
-    if (!onSearch) return;
-    if (timeout) {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        onSearch(value);
-      }, onSearchDelay);
-    } else {
-      timeout = setTimeout(() => {
-        onSearch(value);
-      }, onSearchDelay);
-    }
-  };
-  const filteredOptions =
-    !searchTerm || onSearch
-      ? options
-      : options?.filter(item =>
-          item?.label?.toLowerCase()?.includes(searchTerm?.toLowerCase()),
-        );
+  const filteredOptions = options;
   return (
     <>
       <View
@@ -110,7 +91,11 @@ const ICustomPicker = props => {
         ]}>
         {/* { color: isError ? "red" : "#636363" } */}
         {label ? (
-          <Text style={[labelStyle || {}, {color: isError ? 'red' : 'black'}]}>
+          <Text
+            style={[
+              labelStyle || {},
+              {fontWeight: 'bold', color: isError ? 'red' : 'black'},
+            ]}>
             {label}
           </Text>
         ) : null}
@@ -123,7 +108,7 @@ const ICustomPicker = props => {
             style={[
               style.box,
               {
-                borderWidth: isError ? 1.5 : 0,
+                borderWidth: isError ? 1 : 0,
                 borderColor: isError ? 'red' : 'rgba(99, 99, 99,0.2)',
               },
               wrapperStyle || {},

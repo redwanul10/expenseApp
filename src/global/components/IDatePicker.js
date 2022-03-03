@@ -81,7 +81,11 @@ const IDatePicker = props => {
           },
         ]}>
         {/* Input Field Label */}
-        <Text style={[labelStyle || {}, {color: isError ? 'red' : 'black'}]}>
+        <Text
+          style={[
+            labelStyle || {},
+            {fontWeight: 'bold', color: isError ? 'red' : 'black'},
+          ]}>
           {label}
         </Text>
 

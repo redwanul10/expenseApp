@@ -2,7 +2,6 @@ import {View, StyleSheet} from 'react-native';
 import React, {useEffect} from 'react';
 import {useFormik} from 'formik';
 import {shallowEqual, useDispatch, useSelector} from 'react-redux';
-import {createCategory} from '../../../reudx/categorySlice';
 import FormInput from '../../../global/components/TextInput';
 import CustomButton from '../../../global/components/CustomButton';
 import * as Yup from 'yup';
@@ -34,7 +33,7 @@ const CreateForm = () => {
   // Formiks Setup
   const formikprops = useFormik({
     enableReinitialize: true,
-    initialValues: {name: '', amount: '', category: '', dueDate: _todayDate()},
+    initialValues: {name: '', amount: '', category: '', date: _todayDate()},
     validationSchema: schemaValidation,
     onSubmit: values => {
       dispatch(createExpense(values));
@@ -71,7 +70,7 @@ const CreateForm = () => {
         formikProps={formikprops}
       />
 
-      <IDatePicker label="Due Date" name="dueDate" formikProps={formikprops} />
+      <IDatePicker label="Date" name="date" formikProps={formikprops} />
 
       <CustomButton onPress={formikprops.handleSubmit} btnTxt="Create" />
     </View>
