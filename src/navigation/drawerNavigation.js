@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-} from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import CustomDrawer from '../global/components/CustomDrawer';
 import Home from '../screens/Home';
@@ -17,7 +13,7 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={props => <CustomDrawer {...props} />}
-        initialRouteName="Add Category">
+        initialRouteName="Add Expense">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Add Expense" component={AddExpense} />
         <Drawer.Screen name="Add Category" component={AddCategory} />

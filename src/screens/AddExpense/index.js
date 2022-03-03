@@ -1,12 +1,24 @@
-import {View, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import React from 'react';
+import CreateForm from './components/CreateForm';
+// import CategoryList from './components/CategoryList';
 
 const AddExpense = () => {
   return (
-    <View>
-      <Text>Expense</Text>
+    <View style={style.container}>
+      <CreateForm />
+      {/* <CategoryList /> */}
     </View>
   );
 };
 
 export default AddExpense;
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+    backgroundColor: '#F7F7F7',
+    paddingTop: 20,
+  },
+});

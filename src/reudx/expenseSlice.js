@@ -4,7 +4,8 @@ export const expenseSlice = createSlice({
   name: 'expense',
   initialState: [],
   reducers: {
-    createexpense: (state, action) => {
+    createExpense: (state, action) => {
+      console.log(action);
       const isExist = state.find(item => item?.name === action?.payload?.name);
       if (isExist) {
         alert('already exist');
@@ -12,7 +13,7 @@ export const expenseSlice = createSlice({
       }
       return [...state, action.payload];
     },
-    deleteexpense: (state, action) => {
+    deleteExpense: (state, action) => {
       return state.filter(item => item.name !== action.payload.name);
     },
   },
