@@ -6,7 +6,7 @@ import {DrawerContentScrollView} from '@react-navigation/drawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const CustomDrawer = props => {
-  console.log(JSON.stringify(props, null, 2));
+  // console.log(JSON.stringify(props, null, 2));
   return (
     <DrawerContentScrollView {...props}>
       <View style={style.header}>
