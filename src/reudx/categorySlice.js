@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import * as localStorage from '../global/utills/localStorage';
+import Toast from 'react-native-toast-message';
 
 export const categorySlice = createSlice({
   name: 'category',
@@ -11,11 +12,21 @@ export const categorySlice = createSlice({
     createCategory: (state, action) => {
       const isExist = state.find(item => item?.name === action?.payload?.name);
       if (isExist) {
-        alert('already exist');
+        Toast.show({
+          type: 'error',
+          text1: 'Warning',
+          text2: 'This Category Already Exist',
+        });
         return;
       }
       const updatedCategory = [...state, action.payload];
       localStorage.storeData('@category', updatedCategory);
+
+      Toast.show({
+        type: 'success',
+        text1: 'Success',
+        text2: 'Category Added successfully',
+      });
 
       return updatedCategory;
     },

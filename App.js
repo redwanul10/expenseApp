@@ -13,6 +13,7 @@ import {Provider} from 'react-redux';
 import store from './src/reudx/store';
 import {StatusBar} from 'react-native';
 import LocalStorageProvider from './LocalStorageProvider';
+import Toast from 'react-native-toast-message';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <DrawerNavigation />
         </LocalStorageProvider>
       </Provider>
+      <Toast position="bottom" />
     </>
   );
 };
