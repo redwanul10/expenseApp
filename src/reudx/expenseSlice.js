@@ -3,7 +3,25 @@ import * as localStorage from '../global/utills/localStorage';
 
 export const expenseSlice = createSlice({
   name: 'expense',
-  initialState: [],
+  initialState: [
+    {
+      name: 'Cheese Burger',
+      amount: '280',
+      category: {
+        value: 323234,
+        label: 'Food Expense',
+      },
+      date: '2022-03-04',
+    },
+    {
+      name: 'Milk Shake',
+      amount: '130',
+      category: {
+        value: 323234,
+        label: 'Food Expense',
+      },
+    },
+  ],
   reducers: {
     createExpense: (state, action) => {
       console.log(action);
