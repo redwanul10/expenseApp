@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import * as localStorage from '../global/utills/localStorage';
 
 export const expenseSlice = createSlice({
   name: 'expense',
@@ -11,14 +12,18 @@ export const expenseSlice = createSlice({
         alert('already exist');
         return;
       }
-      return [...state, action.payload];
+
+      const updatedExpense = [...state, action.payload];
+      localStorage.storeData('@expense', updatedExpense);
+
+      return updatedExpense;
     },
-    deleteExpense: (state, action) => {
-      return state.filter(item => item.name !== action.payload.name);
+    setInitialExpense: (state, action) => {
+      return action.payload || state;
     },
   },
 });
 
-export const {createExpense, deleteExpense} = expenseSlice.actions;
+export const {createExpense, setInitialExpense} = expenseSlice.actions;
 
 export default expenseSlice;

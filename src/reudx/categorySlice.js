@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import * as localStorage from '../global/utills/localStorage';
 
 export const categorySlice = createSlice({
   name: 'category',
@@ -13,14 +14,17 @@ export const categorySlice = createSlice({
         alert('already exist');
         return;
       }
-      return [...state, action.payload];
+      const updatedCategory = [...state, action.payload];
+      localStorage.storeData('@category', updatedCategory);
+
+      return updatedCategory;
     },
-    deleteCategory: (state, action) => {
-      return state.filter(item => item.name !== action.payload.name);
+    setInitialCategory: (state, action) => {
+      return action.payload || state;
     },
   },
 });
 
-export const {createCategory, deleteCategory} = categorySlice.actions;
+export const {createCategory, setInitialCategory} = categorySlice.actions;
 
 export default categorySlice;

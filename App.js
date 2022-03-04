@@ -12,13 +12,16 @@ import DrawerNavigation from './src/navigation/drawerNavigation';
 import {Provider} from 'react-redux';
 import store from './src/reudx/store';
 import {StatusBar} from 'react-native';
+import LocalStorageProvider from './LocalStorageProvider';
 
 const App = () => {
   return (
     <>
       <StatusBar backgroundColor="#cc0a5b" />
       <Provider store={store}>
-        <DrawerNavigation />
+        <LocalStorageProvider>
+          <DrawerNavigation />
+        </LocalStorageProvider>
       </Provider>
     </>
   );
