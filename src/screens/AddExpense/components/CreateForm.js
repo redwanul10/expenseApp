@@ -36,9 +36,7 @@ const CreateForm = () => {
     initialValues: {name: '', amount: '', category: '', date: _todayDate()},
     validationSchema: schemaValidation,
     onSubmit: values => {
-      console.log(JSON.stringify(values, null, 2));
-      // dispatch(createExpense(values));
-      // dispatch(createExpense({...values}));
+      dispatch(createExpense(values));
     },
   });
 
