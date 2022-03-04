@@ -35,8 +35,9 @@ const CreateForm = () => {
     enableReinitialize: true,
     initialValues: {name: '', amount: '', category: '', date: _todayDate()},
     validationSchema: schemaValidation,
-    onSubmit: values => {
+    onSubmit: (values, {resetForm}) => {
       dispatch(createExpense(values));
+      resetForm();
     },
   });
 

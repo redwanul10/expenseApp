@@ -20,8 +20,9 @@ const CreateForm = () => {
     enableReinitialize: true,
     initialValues: {name: ''},
     validationSchema: schemaValidation,
-    onSubmit: values => {
+    onSubmit: (values, {resetForm}) => {
       dispatch(createCategory({...values, id: new Date().getTime()}));
+      resetForm();
     },
   });
 
