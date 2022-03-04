@@ -13,7 +13,7 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={props => <CustomDrawer {...props} />}
-        initialRouteName="Add Expense">
+        initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Add Expense" component={AddExpense} />
         <Drawer.Screen name="Add Category" component={AddCategory} />

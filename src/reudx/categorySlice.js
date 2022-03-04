@@ -2,7 +2,10 @@ import {createSlice} from '@reduxjs/toolkit';
 
 export const categorySlice = createSlice({
   name: 'category',
-  initialState: [],
+  initialState: [
+    {name: 'House Rent', id: 34234},
+    {name: 'Food Expense', id: 323234},
+  ],
   reducers: {
     createCategory: (state, action) => {
       const isExist = state.find(item => item?.name === action?.payload?.name);
